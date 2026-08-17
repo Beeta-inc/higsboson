@@ -21,6 +21,7 @@ import { BeetaLauncher } from './modules/beetaLauncher.js';
 import { AdaptiveNature } from './modules/adaptiveNature.js';
 import { WeatherService } from './modules/weatherService.js';
 import { DesktopWidgets } from './modules/desktopWidgets.js';
+import { LiveWallpaper } from './modules/liveWallpaper.js';
 
 /**
  * BeetaUIExtension
@@ -49,6 +50,9 @@ export default class BeetaUIExtension extends Extension {
 
         // ─── 2. Core Services (no UI dependencies) ───────────────
         this._glassManager = new GlassEffectManager();
+
+        this._liveWallpaper = new LiveWallpaper(this._settings);
+        this._liveWallpaper.enable();
 
         this._weatherService = new WeatherService(this._settings);
         this._weatherService.start();
@@ -172,6 +176,11 @@ export default class BeetaUIExtension extends Extension {
         if (this._weatherService) {
             this._weatherService.stop();
             this._weatherService = null;
+        }
+
+        if (this._liveWallpaper) {
+            this._liveWallpaper.disable();
+            this._liveWallpaper = null;
         }
 
         if (this._glassManager) {
