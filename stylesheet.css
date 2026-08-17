@@ -1,0 +1,672 @@
+/*
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ *
+ * Beeta UI — Master Stylesheet
+ * Beeta Design Language (BDL) — Glass tokens, typography, animations
+ *
+ * This stylesheet is automatically loaded by GNOME Shell when
+ * the extension is enabled. All classes prefixed with 'beeta-'
+ * to avoid conflicts with other extensions and the default theme.
+ *
+ * ══════════════════════════════════════════════════════════════
+ * DESIGN PHILOSOPHY
+ * ──────────────────────────────────────────────────────────────
+ * 1. Glass surfaces: 70-80% opaque, soft blur, thin borders
+ * 2. Elegant not flashy: subtle shadows, gentle glows
+ * 3. Readable text: never sacrifice legibility for aesthetics
+ * 4. Consistent spacing: 4px base unit modular scale
+ * 5. Adaptive: colors set dynamically via style properties
+ * ══════════════════════════════════════════════════════════════
+ */
+
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 1: CSS CUSTOM PROPERTIES (Design Tokens)
+   These are overridden dynamically by Adaptive Nature™
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Note: St CSS doesn't support CSS custom properties (var(--x)).
+   Colors are applied via inline style or style_class switching.
+   This section documents the token values for reference. */
+
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 2: TOP BAR (Panel Override)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Make the default GNOME panel transparent for glass effect */
+.beeta-panel-transparent {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Beeta top bar glass surface */
+.beeta-top-bar {
+    background-color: rgba(15, 15, 25, 0.68);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+    transition-duration: 500ms;
+}
+
+.beeta-top-bar:hover {
+    background-color: rgba(15, 15, 25, 0.75);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 3: WORKSPACE INDICATOR
+   ═══════════════════════════════════════════════════════════════ */
+
+.beeta-workspace-container {
+    spacing: 6px;
+    padding: 0 12px;
+}
+
+.beeta-workspace-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.35);
+    transition-duration: 300ms;
+    margin: 0 2px;
+}
+
+.beeta-workspace-dot:hover {
+    background-color: rgba(255, 255, 255, 0.55);
+}
+
+.beeta-workspace-dot-active {
+    background-color: rgba(140, 180, 255, 0.9);
+    box-shadow: 0 0 8px rgba(140, 180, 255, 0.4);
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    transition-duration: 300ms;
+    margin: 0 2px;
+}
+
+/* Pill state during animation — set via inline style transition */
+.beeta-workspace-dot-pill {
+    width: 20px;
+    height: 8px;
+    border-radius: 4px;
+    background-color: rgba(140, 180, 255, 0.9);
+    box-shadow: 0 0 10px rgba(140, 180, 255, 0.5);
+    transition-duration: 150ms;
+    margin: 0 2px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 4: LIVE CENTER
+   ═══════════════════════════════════════════════════════════════ */
+
+.beeta-live-center {
+    padding: 4px 16px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    transition-duration: 200ms;
+}
+
+.beeta-live-center:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.beeta-live-center-time {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+    text-align: center;
+}
+
+.beeta-live-center-subtitle {
+    font-size: 10px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.60);
+    text-align: center;
+}
+
+/* Media playing state */
+.beeta-live-center-media {
+    padding: 4px 14px;
+    border-radius: 20px;
+    background-color: rgba(100, 160, 255, 0.12);
+    border: 1px solid rgba(100, 160, 255, 0.20);
+    transition-duration: 200ms;
+}
+
+.beeta-live-center-media:hover {
+    background-color: rgba(100, 160, 255, 0.18);
+}
+
+.beeta-live-center-track {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.beeta-live-center-artist {
+    font-size: 10px;
+    font-weight: 400;
+    color: rgba(180, 200, 255, 0.75);
+}
+
+.beeta-live-center-album-art {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    margin-right: 8px;
+}
+
+/* Media control buttons */
+.beeta-media-control {
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.8);
+    icon-size: 14px;
+    transition-duration: 150ms;
+}
+
+.beeta-media-control:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 1.0);
+}
+
+.beeta-media-control:active {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Expanded Live Center card */
+.beeta-live-center-expanded {
+    background-color: rgba(15, 15, 25, 0.85);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45),
+                0 0 1px rgba(255, 255, 255, 0.08);
+    padding: 16px;
+    margin-top: 8px;
+    min-width: 320px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 5: SYSTEM STATUS (Right Panel)
+   ═══════════════════════════════════════════════════════════════ */
+
+.beeta-system-status {
+    spacing: 8px;
+    padding: 0 12px;
+}
+
+.beeta-status-icon {
+    icon-size: 16px;
+    color: rgba(255, 255, 255, 0.85);
+    transition-duration: 150ms;
+}
+
+.beeta-status-icon:hover {
+    color: rgba(255, 255, 255, 1.0);
+}
+
+.beeta-status-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.beeta-battery-charging {
+    color: rgba(0, 220, 130, 0.95);
+}
+
+.beeta-battery-turbo {
+    color: rgba(0, 180, 255, 0.95);
+}
+
+.beeta-battery-low {
+    color: rgba(255, 100, 80, 0.95);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 6: BOTTOM DOCK
+   ═══════════════════════════════════════════════════════════════ */
+
+.beeta-dock {
+    background-color: rgba(15, 15, 25, 0.72);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35),
+                0 0 1px rgba(255, 255, 255, 0.06);
+    padding: 6px 12px;
+    margin: 0 8px 8px 8px;
+    transition-duration: 250ms;
+}
+
+.beeta-dock:hover {
+    background-color: rgba(15, 15, 25, 0.78);
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+.beeta-dock-icon-container {
+    spacing: 4px;
+}
+
+/* Individual dock app icon button */
+.beeta-dock-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: transparent;
+    padding: 2px;
+    transition-duration: 150ms;
+}
+
+.beeta-dock-icon:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.beeta-dock-icon:active {
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+.beeta-dock-icon-image {
+    icon-size: 36px;
+}
+
+/* Running app indicator dot */
+.beeta-dock-running-indicator {
+    width: 4px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: rgba(140, 180, 255, 0.8);
+    margin-top: 2px;
+    transition-duration: 200ms;
+}
+
+/* Resource Pulse states */
+.beeta-pulse-idle {
+    background-color: rgba(100, 160, 255, 0.8);
+}
+
+.beeta-pulse-moderate {
+    background-color: rgba(255, 180, 60, 0.85);
+}
+
+.beeta-pulse-heavy {
+    background-color: rgba(255, 80, 60, 0.9);
+}
+
+.beeta-pulse-hung {
+    background-color: rgba(255, 160, 40, 0.9);
+}
+
+/* Dock separator */
+.beeta-dock-separator {
+    width: 1px;
+    height: 28px;
+    background-color: rgba(255, 255, 255, 0.10);
+    margin: 0 6px;
+    border-radius: 1px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 7: BEETA LAUNCHER (Start Menu)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Beeta button in dock */
+.beeta-launcher-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background-color: rgba(100, 140, 255, 0.18);
+    border: 1px solid rgba(100, 140, 255, 0.25);
+    transition-duration: 200ms;
+    padding: 0;
+}
+
+.beeta-launcher-button:hover {
+    background-color: rgba(100, 140, 255, 0.28);
+    border-color: rgba(100, 140, 255, 0.35);
+    box-shadow: 0 0 12px rgba(100, 140, 255, 0.20);
+}
+
+.beeta-launcher-button:active {
+    background-color: rgba(100, 140, 255, 0.15);
+}
+
+.beeta-launcher-button-icon {
+    icon-size: 22px;
+    color: rgba(160, 190, 255, 0.95);
+}
+
+/* Launcher overlay panel */
+.beeta-launcher-overlay {
+    background-color: rgba(12, 12, 22, 0.88);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.50),
+                0 0 1px rgba(255, 255, 255, 0.06);
+    padding: 20px;
+}
+
+/* Two-pane layout */
+.beeta-launcher-left-pane {
+    min-width: 200px;
+    padding-right: 16px;
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.beeta-launcher-right-pane {
+    min-width: 380px;
+    padding-left: 16px;
+}
+
+/* Section headers in launcher */
+.beeta-launcher-section-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.45);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 0 4px 0;
+}
+
+/* App item in launcher */
+.beeta-launcher-app-item {
+    padding: 6px 10px;
+    border-radius: 10px;
+    transition-duration: 150ms;
+}
+
+.beeta-launcher-app-item:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.beeta-launcher-app-item:active {
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+.beeta-launcher-app-icon {
+    icon-size: 28px;
+    margin-right: 10px;
+}
+
+.beeta-launcher-app-name {
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.90);
+}
+
+/* Category card in right pane */
+.beeta-category-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 14px;
+    margin: 4px;
+    transition-duration: 200ms;
+    min-width: 140px;
+}
+
+.beeta-category-card:hover {
+    background-color: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.20);
+}
+
+.beeta-category-icon {
+    icon-size: 28px;
+    margin-bottom: 6px;
+}
+
+.beeta-category-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.beeta-category-count {
+    font-size: 10px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.50);
+}
+
+/* Search entry in launcher */
+.beeta-search-entry {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 8px 14px;
+    color: rgba(255, 255, 255, 0.90);
+    font-size: 13px;
+    caret-color: rgba(140, 180, 255, 0.9);
+    selection-background-color: rgba(100, 140, 255, 0.3);
+    transition-duration: 200ms;
+}
+
+.beeta-search-entry:focus {
+    border-color: rgba(100, 140, 255, 0.35);
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.beeta-search-entry:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 8: DESKTOP WIDGETS
+   ═══════════════════════════════════════════════════════════════ */
+
+.beeta-desktop-widget {
+    background-color: rgba(15, 15, 25, 0.65);
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.30),
+                0 0 1px rgba(255, 255, 255, 0.05);
+    padding: 20px;
+}
+
+.beeta-widget-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.92);
+    margin-bottom: 8px;
+}
+
+.beeta-widget-greeting {
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 4px;
+}
+
+.beeta-widget-temp-large {
+    font-size: 36px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.beeta-widget-temp-condition {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.70);
+}
+
+.beeta-widget-detail {
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+/* Hourly forecast row */
+.beeta-widget-forecast-row {
+    spacing: 16px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.beeta-widget-forecast-item {
+    text-align: center;
+    min-width: 48px;
+}
+
+.beeta-widget-forecast-time {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.50);
+}
+
+.beeta-widget-forecast-icon {
+    font-size: 18px;
+    margin: 4px 0;
+}
+
+.beeta-widget-forecast-temp {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.80);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 9: GENERIC GLASS COMPONENTS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Generic glass card */
+.beeta-glass-card {
+    background-color: rgba(15, 15, 25, 0.72);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25),
+                0 0 1px rgba(255, 255, 255, 0.06);
+    padding: 16px;
+}
+
+/* Glass surface (lighter variant for overlays) */
+.beeta-glass-surface {
+    background-color: rgba(25, 25, 40, 0.60);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 12px;
+}
+
+/* Subtle divider line */
+.beeta-divider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.06);
+    margin: 8px 0;
+}
+
+/* Accent text */
+.beeta-text-accent {
+    color: rgba(140, 180, 255, 0.95);
+}
+
+/* Muted text */
+.beeta-text-muted {
+    color: rgba(255, 255, 255, 0.50);
+}
+
+/* Secondary text */
+.beeta-text-secondary {
+    color: rgba(255, 255, 255, 0.70);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 10: SCROLLBARS
+   ═══════════════════════════════════════════════════════════════ */
+
+.beeta-scrollbar StScrollBar {
+    padding: 0;
+}
+
+.beeta-scrollbar StScrollBar StBin#trough {
+    background-color: transparent;
+    border-radius: 4px;
+    width: 6px;
+}
+
+.beeta-scrollbar StScrollBar StButton#vhandle,
+.beeta-scrollbar StScrollBar StButton#hhandle {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+    width: 6px;
+    min-height: 32px;
+    transition-duration: 200ms;
+}
+
+.beeta-scrollbar StScrollBar StButton#vhandle:hover,
+.beeta-scrollbar StScrollBar StButton#hhandle:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    width: 8px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 11: TOOLTIPS & NOTIFICATIONS
+   ═══════════════════════════════════════════════════════════════ */
+
+.beeta-tooltip {
+    background-color: rgba(10, 10, 18, 0.92);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 12: DOCK WEATHER & AI BUTTONS
+   ═══════════════════════════════════════════════════════════════ */
+
+.beeta-dock-weather {
+    padding: 4px 10px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.06);
+    transition-duration: 200ms;
+}
+
+.beeta-dock-weather:hover {
+    background-color: rgba(255, 255, 255, 0.10);
+}
+
+.beeta-dock-weather-temp {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.90);
+}
+
+.beeta-dock-weather-icon {
+    font-size: 14px;
+    margin-right: 4px;
+}
+
+.beeta-dock-ai-button {
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(100, 140, 255, 0.25), rgba(160, 100, 255, 0.25));
+    border: 1px solid rgba(140, 140, 255, 0.20);
+    transition-duration: 200ms;
+}
+
+.beeta-dock-ai-button:hover {
+    background: linear-gradient(135deg, rgba(100, 140, 255, 0.35), rgba(160, 100, 255, 0.35));
+    box-shadow: 0 0 16px rgba(130, 120, 255, 0.20);
+}
+
+.beeta-dock-ai-icon {
+    icon-size: 18px;
+    color: rgba(180, 180, 255, 0.95);
+}

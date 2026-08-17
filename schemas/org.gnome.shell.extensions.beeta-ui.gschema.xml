@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="beeta-ui">
+
+  <!-- Beeta UI Extension Settings Schema -->
+  <schema id="org.gnome.shell.extensions.beeta-ui"
+          path="/org/gnome/shell/extensions/beeta-ui/">
+
+    <!-- ════════════════════════════════════════════════════ -->
+    <!-- Adaptive Nature™ Settings                          -->
+    <!-- ════════════════════════════════════════════════════ -->
+
+    <key name="adaptive-nature-mode" type="s">
+      <default>'adaptive'</default>
+      <summary>Adaptive Nature™ mode</summary>
+      <description>
+        Controls the environment-aware theming behavior.
+        'static' — Fixed theme, no adaptation.
+        'adaptive' — Responds to time, weather, and battery (recommended).
+        'expressive' — More dramatic transitions and animations.
+      </description>
+    </key>
+
+    <!-- ════════════════════════════════════════════════════ -->
+    <!-- Glass Appearance                                   -->
+    <!-- ════════════════════════════════════════════════════ -->
+
+    <key name="glass-opacity" type="d">
+      <default>0.72</default>
+      <range min="0.3" max="0.95"/>
+      <summary>Glass panel opacity</summary>
+      <description>Background opacity of glass surfaces (0.3 = very transparent, 0.95 = nearly opaque)</description>
+    </key>
+
+    <key name="blur-sigma" type="i">
+      <default>30</default>
+      <range min="5" max="60"/>
+      <summary>Blur intensity</summary>
+      <description>Gaussian blur radius for glass effects. Higher values are more blurry but use more GPU resources.</description>
+    </key>
+
+    <key name="blur-brightness" type="d">
+      <default>0.75</default>
+      <range min="0.3" max="1.0"/>
+      <summary>Blur brightness</summary>
+      <description>Brightness of the blurred background behind glass panels.</description>
+    </key>
+
+    <!-- ════════════════════════════════════════════════════ -->
+    <!-- Bottom Dock                                        -->
+    <!-- ════════════════════════════════════════════════════ -->
+
+    <key name="dock-autohide" type="b">
+      <default>true</default>
+      <summary>Auto-hide dock in Focus State</summary>
+      <description>Automatically hide the bottom dock when a window is maximized or fullscreen.</description>
+    </key>
+
+    <key name="dock-icon-size" type="i">
+      <default>40</default>
+      <range min="24" max="64"/>
+      <summary>Dock icon size</summary>
+      <description>Size of application icons in the bottom dock in pixels.</description>
+    </key>
+
+    <key name="dock-show-resource-pulse" type="b">
+      <default>true</default>
+      <summary>Show Resource Pulse indicators</summary>
+      <description>Display color-coded activity indicators on running app icons (blue=idle, orange=moderate, red=heavy).</description>
+    </key>
+
+    <!-- ════════════════════════════════════════════════════ -->
+    <!-- Live Center                                        -->
+    <!-- ════════════════════════════════════════════════════ -->
+
+    <key name="live-center-show-media" type="b">
+      <default>true</default>
+      <summary>Show media in Live Center</summary>
+      <description>Display currently playing media information (artist, track) in the Live Center.</description>
+    </key>
+
+    <key name="live-center-show-in-focus" type="b">
+      <default>true</default>
+      <summary>Show Live Center in Focus State</summary>
+      <description>Keep the Live Center visible when an application is maximized.</description>
+    </key>
+
+    <!-- ════════════════════════════════════════════════════ -->
+    <!-- Desktop Widgets                                    -->
+    <!-- ════════════════════════════════════════════════════ -->
+
+    <key name="show-desktop-widgets" type="b">
+      <default>true</default>
+      <summary>Show desktop widgets</summary>
+      <description>Display weather and greeting widgets on the desktop background.</description>
+    </key>
+
+    <!-- ════════════════════════════════════════════════════ -->
+    <!-- Weather                                            -->
+    <!-- ════════════════════════════════════════════════════ -->
+
+    <key name="weather-auto-location" type="b">
+      <default>true</default>
+      <summary>Auto-detect location for weather</summary>
+      <description>Use GeoClue2 to automatically detect the user's location for weather data.</description>
+    </key>
+
+    <key name="weather-latitude" type="d">
+      <default>22.5726</default>
+      <summary>Weather latitude</summary>
+      <description>Manual latitude for weather data (used when auto-location is disabled).</description>
+    </key>
+
+    <key name="weather-longitude" type="d">
+      <default>88.3639</default>
+      <summary>Weather longitude</summary>
+      <description>Manual longitude for weather data (used when auto-location is disabled).</description>
+    </key>
+
+    <key name="temperature-unit" type="s">
+      <default>'celsius'</default>
+      <summary>Temperature unit</summary>
+      <description>'celsius' or 'fahrenheit'</description>
+    </key>
+
+    <!-- ════════════════════════════════════════════════════ -->
+    <!-- Animation / Adaptive Motion™                       -->
+    <!-- ════════════════════════════════════════════════════ -->
+
+    <key name="animation-speed" type="s">
+      <default>'normal'</default>
+      <summary>Animation speed</summary>
+      <description>
+        Controls animation intensity.
+        'reduced' — Minimal animations for accessibility or low-end hardware.
+        'normal' — Standard Beeta Motion™.
+        'expressive' — Richer, longer animations.
+      </description>
+    </key>
+
+    <key name="adaptive-motion-enabled" type="b">
+      <default>true</default>
+      <summary>Adaptive Motion™</summary>
+      <description>Automatically reduce animation intensity on battery, Power Saver mode, or older hardware.</description>
+    </key>
+
+    <!-- ════════════════════════════════════════════════════ -->
+    <!-- Live Wallpaper                                     -->
+    <!-- ════════════════════════════════════════════════════ -->
+
+    <key name="live-wallpaper-enabled" type="b">
+      <default>false</default>
+      <summary>Enable live wallpaper</summary>
+      <description>Enable video/animated wallpaper support using GStreamer.</description>
+    </key>
+
+    <key name="live-wallpaper-path" type="s">
+      <default>''</default>
+      <summary>Live wallpaper file path</summary>
+      <description>Absolute path to the video file to use as a live wallpaper.</description>
+    </key>
+
+    <key name="live-wallpaper-mute" type="b">
+      <default>true</default>
+      <summary>Mute live wallpaper audio</summary>
+      <description>Mute the audio track of the live wallpaper video.</description>
+    </key>
+
+    <!-- ════════════════════════════════════════════════════ -->
+    <!-- User Profile                                       -->
+    <!-- ════════════════════════════════════════════════════ -->
+
+    <key name="user-display-name" type="s">
+      <default>''</default>
+      <summary>User display name</summary>
+      <description>Name shown in greetings. Leave empty to use the system username.</description>
+    </key>
+
+  </schema>
+</schemalist>
