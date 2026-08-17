@@ -2,7 +2,15 @@
   "uuid": "beeta-ui@beeta-inc.com",
   "name": "Beeta UI",
   "description": "Premium glassmorphic desktop experience with Adaptive Nature™, Live Center, Smart Launcher, and Live Wallpaper support. Transforms GNOME into a professional, environment-aware desktop with floating glass panels, dynamic status hub, and intelligent theming.",
-  "shell-version": ["50"],
+  "shell-version": [
+    "45",
+    "46",
+    "47",
+    "48",
+    "49",
+    "50",
+    "50.1"
+  ],
   "version": 1,
   "settings-schema": "org.gnome.shell.extensions.beeta-ui",
   "url": "https://github.com/Beeta-inc/higsboson"
